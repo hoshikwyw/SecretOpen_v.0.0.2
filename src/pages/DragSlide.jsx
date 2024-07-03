@@ -90,6 +90,7 @@ const DragSlide = () => {
     };
 
     const handleVideoEnd = () => {
+        console.log("vd enddd>>>.");
         setVdEnd(true);
     };
 
@@ -136,11 +137,11 @@ const DragSlide = () => {
                             <div className=" flex items-center justify-center w-full h-full">
                                 {!vdEnd && (
                                     <>
-                                        {/* <video className=' w-[70%]' autoPlay onEnded={handleVideoEnd}>
+                                        <video className=' w-[70%]' autoPlay onEnded={handleVideoEnd}>
                                             <source src='/final4.mp4' type='video/mp4' />
-                                        </video> */}
+                                        </video>
 
-                                        <iframe width="960" height="515" src="https://www.youtube.com/embed/Lq0Ycsf1jzI?si=oydcLRWy4tb0l9gV&autoplay=1&controls=0&modestbranding=1&showinfo=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; web-share" referrerpolicy="strict-origin-when-cross-origin" onEnded={handleVideoEnd}></iframe>
+                                        {/* <iframe width="960" height="515" src="https://www.youtube.com/embed/Lq0Ycsf1jzI?si=oydcLRWy4tb0l9gV&autoplay=1&controls=0&modestbranding=1&showinfo=0&rel=0" title="YouTube video player" allow="accelerometer; autoplay; encrypted-media; gyroscope; web-share"></iframe> */}
 
                                         <h2 className='text-animation absolute font-bold z-50 text-3xl top-[45%] left-[40%] text-orange-500 font-mono'>Enjoy the show my dear!!</h2>
                                     </>
