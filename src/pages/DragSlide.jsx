@@ -96,16 +96,16 @@ const DragSlide = () => {
     };
 
     return (
-        <div className=' w-screen h-screen overflow-hidden relative bg-black'>
+        <div className=' min-w-screen min-h-screen overflow-hidden bg-black relative'>
             {!clickedYes && (
-                <div className="flex flex-col justify-center items-center">
-                    <div className="textArea font-semibold text-3xl mt-20 invisible md:visible lg:visible">
+                <div className=" flex flex-col items-center">
+                    <div className=" font-semibold text-3xl mt-20 hidden md:block lg:block">
                         {createTextSpans("I wanna tell you something. I really like you. Can you be mine?")}
                     </div>
-                    <div className="my-14 w-60 h-60">
-                        <img src={getImageSrc()} alt="" className='main-img rounded-md' />
+                    <div className=" my-10 w-60 h-60 ">
+                        <img src={getImageSrc()} alt="" className=' rounded-md' />
                     </div>
-                    <p className='flex items-center gap-2 font-semibold mb-10 text-xl'>{getText()}</p>
+                    <p className=' gap-2 font-semibold my-10 text-xl'>{getText()}</p>
                     <div className="">
                         <button className={`random-button border-2 me-10 ${moveCount >= 70 ? 'w-[10%]' : ''} absolute left-[30%] top-[78%] md:left-[45%] md:top-[60%] lg:left-[45%] lg:top-[78%]`} onClick={() => setClickedYes(true)}>
                             Yes
