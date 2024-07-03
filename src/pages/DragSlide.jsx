@@ -107,7 +107,7 @@ const DragSlide = () => {
                     </div>
                     <p className=' gap-2 font-semibold my-10 text-xl'>{getText()}</p>
                     <div className="">
-                        <button className={`random-button border-2 me-10 ${moveCount >= 70 ? ' w-[30%] lg:w-[10%]' : ''} absolute left-[30%] top-[78%] md:left-[45%] md:top-[60%] lg:left-[45%] lg:top-[78%]`} onClick={() => setClickedYes(true)}>
+                        <button className={`random-button border-2 ${moveCount >= 70 ? ' w-[70%] mx-auto md:w-[20%] lg:w-[20%] absolute left-16 lg:left-[40%] md:left-[40%] top-[78%] md:top-[80%] lg:top-[78%]' : ' absolute top-[78%] md:top-[60%] lg:top-[78%] me-10 left-[30%] md:left-[45%] lg:left-[45%]'} `} onClick={() => setClickedYes(true)}>
                             Yes
                         </button>
                         <button
