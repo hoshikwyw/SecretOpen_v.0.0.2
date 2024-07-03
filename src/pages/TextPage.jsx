@@ -17,11 +17,11 @@ const TextPage = () => {
                 <div className=' relative' >
                     <div >
                         <button className='cursorChange cursor-pointer' onClick={() => setClicked(true)}>
-                            <img src="/email.png" alt="" className=' w-64 h-60 emailImg' />
+                            <img src="/email.png" alt="" className=' w-28 h-28 lg:w-64 lg:h-60 emailImg' />
                         </button>
 
                     </div>
-                    <img src="/arrow.gif" alt="" className=' absolute left-[120%] top-[20%]' />
+                    <img src="/arrow.gif" alt="" className=' absolute left-[120%] top-[1%] lg:top-[20%]' />
                     <p className=' fixed bottom-0 left-0 p-5 font-semibold tracking-wider text-lg'>Click the Envelope to see what I wanna talk to you ...</p>
                 </div>
             )}
