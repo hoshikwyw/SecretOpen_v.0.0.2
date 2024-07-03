@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import "../styles/DragPage.css";
 import { Draggable } from "gsap/Draggable";
+import { NavLink } from 'react-router-dom';
 
 gsap.registerPlugin(Draggable);
 
@@ -137,18 +138,19 @@ const DragSlide = () => {
                             <div className=" flex items-center justify-center w-full h-full">
                                 {!vdEnd && (
                                     <>
-                                        <video className=' w-[70%]' autoPlay onEnded={handleVideoEnd}>
+                                        <video className=' w-full lg:w-[70%]' autoPlay onEnded={handleVideoEnd}>
                                             <source src='/final4.mp4' type='video/mp4' />
                                         </video>
-
-                                        {/* <iframe width="960" height="515" src="https://www.youtube.com/embed/Lq0Ycsf1jzI?si=oydcLRWy4tb0l9gV&autoplay=1&controls=0&modestbranding=1&showinfo=0&rel=0" title="YouTube video player" allow="accelerometer; autoplay; encrypted-media; gyroscope; web-share"></iframe> */}
-
                                         <h2 className='text-animation absolute font-bold z-50 text-3xl top-[45%] left-[40%] text-orange-500 font-mono'>Enjoy the show my dear!!</h2>
                                     </>
                                 )}
                                 {vdEnd && (
                                     <div className=" w-full h-full flex flex-col justify-center items-center">
-                                        <p className=' font-semibold font-mono text-xl text-green-400 uppercase'>Go Home</p>
+                                        <p className=' font-semibold font-mono text-xl text-green-400 uppercase'>
+                                            <NavLink to="/">
+                                                Go Home
+                                            </NavLink>
+                                        </p>
                                         <p>go back to the start page</p>
                                     </div>
                                 )}
