@@ -40,40 +40,15 @@ const Main = () => {
 
     return (
         <div className='w-screen h-screen flex flex-col justify-center items-center overflow-hidden'>
-            {!surName && (
-                <form onSubmit={(e) => { e.preventDefault(); setSurName(name) }}>
-                    <input
-                        type="text"
-                        placeholder="Enter Your Name"
-                        className="input input-bordered input-accent w-full max-w-xs"
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </form>
-            )}
-            {surName && (
+            {surName ? (
                 <>
-                    {!clickNo && (
-                        <>
-                            <p className=' font-semibold text-3xl tracking-wider text-gray-300 mx-3'>Hello <span className=' font-bold text-blue-400'>{surName}</span> , welcome to my Secret Page.</p>
-                            <div className='mt-10'>
-                                <p className='font-semibold text-xl tracking-wider'>Do You Wanna Go Next Slide ??</p>
-                                <div className="flex justify-center items-center mt-10">
-                                    <NavLink to="/textPage" className="btn btn-primary">Yes</NavLink>
-                                    <button className='btn btn-primary ml-5' onClick={() => setClickNo(true)}>No</button>
-                                </div>
-                            </div>
-                        </>
-                    )}
-                    {clickNo && (
+                    {clickNo ? (
                         <div className='relative w-full h-full'>
                             <img src="/sad.gif" alt="" className=' selection:mx-auto brightness-50 absolute top-[25%] left-[10%] md:top-[40%] md:left-[40%] lg:top-[30%] lg:left-[42%]' />
                             {whyElements.map(element => (
-                                <span
+                                <span className=' absolute text-[1.1em] font-bold'
                                     key={element.id}
                                     style={{
-                                        position: 'absolute',
-                                        fontSize: '1.1em',
-                                        fontWeight: 'bold',
                                         top: element.position.top,
                                         left: element.position.left,
                                         color: element.color,
@@ -86,9 +61,31 @@ const Main = () => {
                             ))}
                             <button className='btn btn-primary ml-5 fixed bottom-[25%] left-[23%] md:bottom-[30%] md:left-[50%] lg:bottom-[25%] lg:left-[45%]' onClick={() => setClickNo(false)}>Choose Again Please !!!</button>
                         </div>
+                    ) : (
+                        <>
+                            <p className=' font-semibold text-3xl tracking-wider text-gray-300 mx-3'>Hello <span className=' font-bold text-blue-400'>{surName}</span> , welcome to my Secret Page.</p>
+                            <div className='mt-10'>
+                                <p className='font-semibold text-xl tracking-wider'>Do You Wanna Go Next Slide ??</p>
+                                <div className="flex justify-center items-center mt-10">
+                                    <NavLink to="/textPage" className="btn btn-primary">Yes</NavLink>
+                                    <button className='btn btn-primary ml-5' onClick={() => setClickNo(true)}>No</button>
+                                </div>
+                            </div>
+                        </>
                     )}
+
                 </>
+            ) : (
+                <form onSubmit={(e) => { e.preventDefault(); setSurName(name) }}>
+                    <input
+                        type="text"
+                        placeholder="Enter Your Name"
+                        className="input input-bordered input-accent w-full max-w-xs"
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </form>
             )}
+
         </div>
     );
 };

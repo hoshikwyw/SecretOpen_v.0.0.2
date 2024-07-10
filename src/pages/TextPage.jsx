@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { EffectCards } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FcLike } from "react-icons/fc";
 
 import 'swiper/css';
 import 'swiper/css/effect-cards';
@@ -13,19 +12,7 @@ const TextPage = () => {
 
     return (
         <div className=' flex min-w-screen min-h-screen justify-center items-center relative'>
-            {!clicked && (
-                <div className=' relative' >
-                    <div >
-                        <button className='cursorChange cursor-pointer' onClick={() => setClicked(true)}>
-                            <img src="/email.png" alt="" className=' w-28 h-28 lg:w-64 lg:h-60 emailImg' />
-                        </button>
-
-                    </div>
-                    <img src="/arrow.gif" alt="" className=' absolute left-[120%] top-[1%] lg:top-[20%]' />
-                    <p className=' fixed bottom-0 left-0 p-5 font-semibold tracking-wider text-lg'>Click the Envelope to see what I wanna talk to you ...</p>
-                </div>
-            )}
-            {clicked && (
+            {clicked ? (
                 <div className="">
                     <Swiper effect={'cards'} grabCursor={true} className="mySwiper" modules={[EffectCards]}>
                         <SwiperSlide><img src="/postCards/openLetter.png" alt="" /></SwiperSlide>
@@ -45,7 +32,19 @@ const TextPage = () => {
                         <SwiperSlide><NavLink to={'/drag'}>Click and Go To Next Slide</NavLink></SwiperSlide>
                     </Swiper>
                 </div>
+            ) : (
+                <div className=' relative' >
+                    <div >
+                        <button className='cursorChange cursor-pointer' onClick={() => setClicked(true)}>
+                            <img src="/email.png" alt="" className=' w-28 h-28 lg:w-64 lg:h-60 emailImg' />
+                        </button>
+
+                    </div>
+                    <img src="/arrow.gif" alt="" className=' absolute left-[120%] top-[1%] lg:top-[20%]' />
+                    <p className=' fixed bottom-0 left-0 p-5 font-semibold tracking-wider text-lg'>Click the Envelope to see what I wanna talk to you ...</p>
+                </div>
             )}
+
         </div>
     )
 }
