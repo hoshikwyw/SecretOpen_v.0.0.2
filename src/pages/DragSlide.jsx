@@ -91,13 +91,49 @@ const DragSlide = () => {
     };
 
     const handleVideoEnd = () => {
-        console.log("vd enddd>>>.");
+        // console.log("vd enddd>>>.");
         setVdEnd(true);
     };
 
     return (
         <div className=' min-w-screen min-h-screen overflow-hidden bg-black relative'>
-            {!clickedYes && (
+            {clickedYes ? (
+                <div className=" min-w-screen min-h-screen flex justify-center items-center">
+                    <div className=' w-full h-full'>
+                        {dragged ? (
+                            <div className=" flex items-center justify-center w-full h-full">
+                                {vdEnd ? (
+                                    <div className=" w-full h-full flex flex-col justify-center items-center">
+                                        <p className=' font-semibold font-mono text-xl text-green-400 uppercase'>
+                                            <NavLink to="/">
+                                                Go Home
+                                            </NavLink>
+                                        </p>
+                                        <p>go back to the start page</p>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <video className=' w-full lg:w-[70%]' autoPlay onEnded={handleVideoEnd}>
+                                            <source src='/final4.mp4' type='video/mp4' />
+                                        </video>
+                                        <h2 className='text-animation absolute font-bold z-50 text-3xl top-[45%] left-[40%] text-orange-500 font-mono'>Enjoy the show my dear!!</h2>
+                                    </>
+                                )}
+                            </div>
+
+                        ) : (
+                            <div className='flex items-center'>
+                                <div ref={dragContainerRef} className="dragContainer w-[65%] h-[100px]">
+                                    <img ref={imageRef} src="/water.png" alt="" className='w-24' draggable='false' />
+                                </div>
+                                <img src="/fire.png" alt="" className='w-24 -ms-9 mt-14' draggable='false' />
+                                <p className=' fixed top-2 font-mono font-semibold text-xl left-2'>Drag the water to the fire....</p>
+                            </div>
+                        )}
+
+                    </div>
+                </div>
+            ) : (
                 <div className=" flex flex-col items-center">
                     <div className=" font-semibold text-3xl mt-20 hidden md:block lg:block">
                         {createTextSpans("I wanna tell you something. I really like you. Can you be mine?")}
@@ -122,44 +158,7 @@ const DragSlide = () => {
                     </div>
                 </div>
             )}
-            {clickedYes && (
-                <div className=" min-w-screen min-h-screen flex justify-center items-center">
-                    <div className=' w-full h-full'>
-                        {!dragged && (
-                            <div className='flex items-center'>
-                                <div ref={dragContainerRef} className="dragContainer w-[65%] h-[100px]">
-                                    <img ref={imageRef} src="/water.png" alt="" className='w-24' draggable='false' />
-                                </div>
-                                <img src="/fire.png" alt="" className='w-24 -ms-9 mt-14' draggable='false' />
-                                <p className=' fixed top-2 font-mono font-semibold text-xl left-2'>Drag the water to the fire....</p>
-                            </div>
-                        )}
-                        {dragged && (
-                            <div className=" flex items-center justify-center w-full h-full">
-                                {!vdEnd && (
-                                    <>
-                                        <video className=' w-full lg:w-[70%]' autoPlay onEnded={handleVideoEnd}>
-                                            <source src='/final4.mp4' type='video/mp4' />
-                                        </video>
-                                        <h2 className='text-animation absolute font-bold z-50 text-3xl top-[45%] left-[40%] text-orange-500 font-mono'>Enjoy the show my dear!!</h2>
-                                    </>
-                                )}
-                                {vdEnd && (
-                                    <div className=" w-full h-full flex flex-col justify-center items-center">
-                                        <p className=' font-semibold font-mono text-xl text-green-400 uppercase'>
-                                            <NavLink to="/">
-                                                Go Home
-                                            </NavLink>
-                                        </p>
-                                        <p>go back to the start page</p>
-                                    </div>
-                                )}
-                            </div>
 
-                        )}
-                    </div>
-                </div>
-            )}
         </div>
     );
 };
