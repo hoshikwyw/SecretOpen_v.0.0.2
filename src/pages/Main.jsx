@@ -76,13 +76,16 @@ const Main = () => {
 
                 </>
             ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSurName(name) }}>
+                <form className=' flex flex-col justify-center items-center gap-5' onSubmit={(e) => { e.preventDefault(); setSurName(name) }}>
                     <input
                         type="text"
                         placeholder="Enter Your Name"
                         className="input input-bordered input-accent w-full max-w-xs"
                         onChange={(e) => setName(e.target.value)}
                     />
+                    {name.length > 0 && (
+                        <button type="submit" className='btn btn-primary'>Okay</button>
+                    )}
                 </form>
             )}
 
