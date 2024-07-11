@@ -27,8 +27,6 @@ const TextPage = () => {
                         <SwiperSlide><img src="/postCards/9.jpg" alt="" /></SwiperSlide>
                         <SwiperSlide><img src="/postCards/10.jpg" alt="" /></SwiperSlide>
                         <SwiperSlide><img src="/postCards/11.jpg" alt="" /></SwiperSlide>
-                        <SwiperSlide><img src="/postCards/12.jpg" alt="" /></SwiperSlide>
-                        <SwiperSlide><img src="/postCards/13.jpg" alt="" /></SwiperSlide>
                         <SwiperSlide><NavLink to={'/drag'}>Click and Go To Next Slide</NavLink></SwiperSlide>
                     </Swiper>
                 </div>
